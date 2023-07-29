@@ -50,19 +50,17 @@ class CoreLocationViewModel: NSObject, ObservableObject, CLLocationManagerDelega
         }
     }
     
-    func locationManager(_ manager: CLLocationManager,
-                didEnterRegion region: CLRegion) {
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("Region entered")
-        if region is CLBeaconRegion {
+        if let beaconRegion = region as? CLBeaconRegion {
             // Start ranging only if the devices supports this service.
             if CLLocationManager.isRangingAvailable() {
                 manager.startRangingBeacons(in: region as! CLBeaconRegion)
 
-
                 // Store the beacon so that ranging can be stopped on demand.
 //                beaconsToRange.append(region as! CLBeaconRegion)
                 print("Beacon found")
-                print(region)
+                getBeacon(uuid: beaconRegion.uuid)
             }
             else {
                 print("nein!")

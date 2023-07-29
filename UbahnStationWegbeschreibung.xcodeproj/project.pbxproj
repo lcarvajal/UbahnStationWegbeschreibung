@@ -15,6 +15,7 @@
 		8DC2B9362A7583AA009194AB /* UbahnStationWegbeschreibungUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9352A7583AA009194AB /* UbahnStationWegbeschreibungUITests.swift */; };
 		8DC2B9382A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9372A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift */; };
 		8DC2B9452A7584C3009194AB /* CoreLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */; };
+		8DC2B94A2A75A737009194AB /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9492A75A737009194AB /* Beacon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		8DC2B9352A7583AA009194AB /* UbahnStationWegbeschreibungUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbahnStationWegbeschreibungUITests.swift; sourceTree = "<group>"; };
 		8DC2B9372A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbahnStationWegbeschreibungUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationViewModel.swift; sourceTree = "<group>"; };
+		8DC2B9492A75A737009194AB /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				8DC2B91A2A7583A8009194AB /* UbahnStationWegbeschreibungApp.swift */,
-				8DC2B91C2A7583A8009194AB /* ContentView.swift */,
-				8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */,
+				8DC2B9462A75A6E8009194AB /* Models */,
+				8DC2B9482A75A70B009194AB /* ViewModel */,
+				8DC2B9472A75A6F5009194AB /* Views */,
 				8DC2B91E2A7583A9009194AB /* Assets.xcassets */,
 				8DC2B9202A7583A9009194AB /* Preview Content */,
 			);
@@ -128,6 +131,30 @@
 				8DC2B9372A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift */,
 			);
 			path = UbahnStationWegbeschreibungUITests;
+			sourceTree = "<group>";
+		};
+		8DC2B9462A75A6E8009194AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2B9492A75A737009194AB /* Beacon.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8DC2B9472A75A6F5009194AB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2B91C2A7583A8009194AB /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8DC2B9482A75A70B009194AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +290,7 @@
 				8DC2B9452A7584C3009194AB /* CoreLocationViewModel.swift in Sources */,
 				8DC2B91D2A7583A8009194AB /* ContentView.swift in Sources */,
 				8DC2B91B2A7583A8009194AB /* UbahnStationWegbeschreibungApp.swift in Sources */,
+				8DC2B94A2A75A737009194AB /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
