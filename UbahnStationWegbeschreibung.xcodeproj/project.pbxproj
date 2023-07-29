@@ -14,6 +14,7 @@
 		8DC2B92C2A7583AA009194AB /* UbahnStationWegbeschreibungTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B92B2A7583AA009194AB /* UbahnStationWegbeschreibungTests.swift */; };
 		8DC2B9362A7583AA009194AB /* UbahnStationWegbeschreibungUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9352A7583AA009194AB /* UbahnStationWegbeschreibungUITests.swift */; };
 		8DC2B9382A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9372A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift */; };
+		8DC2B9452A7584C3009194AB /* CoreLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		8DC2B9312A7583AA009194AB /* UbahnStationWegbeschreibungUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UbahnStationWegbeschreibungUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC2B9352A7583AA009194AB /* UbahnStationWegbeschreibungUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbahnStationWegbeschreibungUITests.swift; sourceTree = "<group>"; };
 		8DC2B9372A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbahnStationWegbeschreibungUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				8DC2B91A2A7583A8009194AB /* UbahnStationWegbeschreibungApp.swift */,
 				8DC2B91C2A7583A8009194AB /* ContentView.swift */,
+				8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */,
 				8DC2B91E2A7583A9009194AB /* Assets.xcassets */,
 				8DC2B9202A7583A9009194AB /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC2B9452A7584C3009194AB /* CoreLocationViewModel.swift in Sources */,
 				8DC2B91D2A7583A8009194AB /* ContentView.swift in Sources */,
 				8DC2B91B2A7583A8009194AB /* UbahnStationWegbeschreibungApp.swift in Sources */,
 			);
@@ -345,6 +349,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Get real-time orientation info in Viennese subway stations";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -399,6 +408,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Get real-time orientation info in Viennese subway stations";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Get real-time orientation info in Viennese subway stations";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
