@@ -20,8 +20,7 @@ struct ContentView: View {
         case .denied:
             ErrorView(errorText: "The app does not have location permissions. Please enable them in settings.")
         case .authorizedAlways, .authorizedWhenInUse:
-            TrackingView()
-                .environmentObject(locationViewModel)
+            BeaconView()
         default:
             Text("Unexpected status")
         }
@@ -69,22 +68,37 @@ struct ErrorView: View {
     }
 }
 
-struct TrackingView: View {
-    @EnvironmentObject var locationViewModel: CoreLocationViewModel
+struct BeaconView: View {
+    @StateObject var beaconViewModel = BeaconViewModel()
     
     var body: some View {
-        VStack {
-            Button(action: {
-                locationViewModel.locateBeacon()
-            }, label: {
-                Label("Locate Beacon", systemImage: "location")
-            })
+        NavigationStack {
+            VStack {
+                Image("Sunglasses")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 50, height: 50)
+                    .clipped()
+                    .padding(75)
+                Text("Station \(beaconViewModel.beacon.station)")
+                    .font(.title2)
+                Text(beaconViewModel.beacon.description)
+                    .font(.body)
+                    .padding()
+                    .lineSpacing(10)
+                Spacer()
+            }
+            .onAppear {
+                //                locationViewModel.locateBeacon()
+                beaconViewModel.getBeacon(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!)
+            }
+            .navigationTitle(Text("Orientation"))
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        BeaconView()
     }
 }

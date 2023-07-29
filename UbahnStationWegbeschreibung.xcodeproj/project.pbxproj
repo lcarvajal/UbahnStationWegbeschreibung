@@ -16,6 +16,7 @@
 		8DC2B9382A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9372A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift */; };
 		8DC2B9452A7584C3009194AB /* CoreLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */; };
 		8DC2B94A2A75A737009194AB /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B9492A75A737009194AB /* Beacon.swift */; };
+		8DC2B94E2A75C469009194AB /* BeaconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC2B94D2A75C469009194AB /* BeaconViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		8DC2B9372A7583AA009194AB /* UbahnStationWegbeschreibungUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbahnStationWegbeschreibungUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationViewModel.swift; sourceTree = "<group>"; };
 		8DC2B9492A75A737009194AB /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		8DC2B94D2A75C469009194AB /* BeaconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC2B9442A7584C3009194AB /* CoreLocationViewModel.swift */,
+				8DC2B94D2A75C469009194AB /* BeaconViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC2B94E2A75C469009194AB /* BeaconViewModel.swift in Sources */,
 				8DC2B9452A7584C3009194AB /* CoreLocationViewModel.swift in Sources */,
 				8DC2B91D2A7583A8009194AB /* ContentView.swift in Sources */,
 				8DC2B91B2A7583A8009194AB /* UbahnStationWegbeschreibungApp.swift in Sources */,

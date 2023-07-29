@@ -60,7 +60,7 @@ class CoreLocationViewModel: NSObject, ObservableObject, CLLocationManagerDelega
                 // Store the beacon so that ranging can be stopped on demand.
 //                beaconsToRange.append(region as! CLBeaconRegion)
                 print("Beacon found")
-                getBeacon(uuid: beaconRegion.uuid)
+//                getBeacon(uuid: beaconRegion.uuid)
             }
             else {
                 print("nein!")
