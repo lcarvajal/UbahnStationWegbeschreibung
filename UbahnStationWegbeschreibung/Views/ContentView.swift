@@ -28,13 +28,15 @@ struct ContentView: View {
                 } label: {
                     Image("Map")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
+                        .edgesIgnoringSafeArea(.top)
                 }
                 .sheet(isPresented: $showingSheet) {
                     BeaconView()
                     
                 }
             }
+            .preferredColorScheme(.light)
         }
     }
 }
@@ -45,20 +47,35 @@ struct BeaconView: View {
     
     var body: some View {
             VStack {
+                Spacer()
                 Image("Sunglasses")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 50, height: 50)
                     .clipped()
-                    .padding(75)
+                    .padding()
                 Text("Station \(beaconViewModel.beacon.station)")
                     .font(.title2)
+                    .padding(10)
                 Text(beaconViewModel.beacon.description)
                     .font(.body)
-                    .padding()
-                    .lineSpacing(10)
+                    .padding(20)
+                Spacer()
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Dismiss")
+                    .frame(maxWidth: .infinity)
+                    .padding(15)
+                }
+                .background(Color(red: 0.906, green: 0.154, blue: 0.189))
+                .foregroundStyle(.white)
+                .clipShape(Capsule())
                 Spacer()
             }
+            .padding(20)
+            .background(.white)
+            .foregroundColor(.black)
             .onAppear {
                 //                locationViewModel.locateBeacon()
                 beaconViewModel.getBeacon(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!)
