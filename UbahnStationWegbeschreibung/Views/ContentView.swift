@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingSheet = false
     @StateObject var locationViewModel = CoreLocationViewModel()
     
     var body: some View {
@@ -19,11 +20,49 @@ struct ContentView: View {
             ErrorView(errorText: "Location use is restricted.")
         case .denied:
             ErrorView(errorText: "The app does not have location permissions. Please enable them in settings.")
-        case .authorizedAlways, .authorizedWhenInUse:
-            BeaconView()
         default:
-            Text("Unexpected status")
+            VStack {
+                Button {
+                    showingSheet.toggle()
+                    
+                } label: {
+                    Image("Map")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+                .sheet(isPresented: $showingSheet) {
+                    BeaconView()
+                    
+                }
+            }
         }
+    }
+}
+
+struct BeaconView: View {
+    @Environment(\.dismiss) var dismiss
+    @StateObject var beaconViewModel = BeaconViewModel()
+    
+    var body: some View {
+            VStack {
+                Image("Sunglasses")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 50, height: 50)
+                    .clipped()
+                    .padding(75)
+                Text("Station \(beaconViewModel.beacon.station)")
+                    .font(.title2)
+                Text(beaconViewModel.beacon.description)
+                    .font(.body)
+                    .padding()
+                    .lineSpacing(10)
+                Spacer()
+            }
+            .onAppear {
+                //                locationViewModel.locateBeacon()
+                beaconViewModel.getBeacon(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!)
+            }
     }
 }
 
@@ -68,37 +107,8 @@ struct ErrorView: View {
     }
 }
 
-struct BeaconView: View {
-    @StateObject var beaconViewModel = BeaconViewModel()
-    
-    var body: some View {
-        NavigationStack {
-            VStack {
-                Image("Sunglasses")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 50, height: 50)
-                    .clipped()
-                    .padding(75)
-                Text("Station \(beaconViewModel.beacon.station)")
-                    .font(.title2)
-                Text(beaconViewModel.beacon.description)
-                    .font(.body)
-                    .padding()
-                    .lineSpacing(10)
-                Spacer()
-            }
-            .onAppear {
-                //                locationViewModel.locateBeacon()
-                beaconViewModel.getBeacon(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!)
-            }
-            .navigationTitle(Text("Orientation"))
-        }
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconView()
+        ContentView()
     }
 }
