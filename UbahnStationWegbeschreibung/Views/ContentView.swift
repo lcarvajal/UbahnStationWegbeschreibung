@@ -23,8 +23,15 @@ struct ContentView: View {
         default:
             VStack {
                 Button {
-                    showingSheet.toggle()
-                    
+                    locationViewModel.locateBeacon()
+                    if locationViewModel.newBeaconFound {
+                        print("New one found")
+                        print(locationViewModel.beaconRegions.count)
+                        showingSheet.toggle()
+                    }
+                    else {
+                        print("No new beacon found")
+                    }
                 } label: {
                     Image("Map")
                         .resizable()
@@ -77,7 +84,6 @@ struct BeaconView: View {
             .background(.white)
             .foregroundColor(.black)
             .onAppear {
-                //                locationViewModel.locateBeacon()
                 beaconViewModel.getBeacon(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!)
             }
     }

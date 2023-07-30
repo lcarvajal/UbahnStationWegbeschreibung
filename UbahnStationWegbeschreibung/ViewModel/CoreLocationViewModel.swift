@@ -13,6 +13,9 @@ class CoreLocationViewModel: NSObject, ObservableObject, CLLocationManagerDelega
     
     private let locationManager: CLLocationManager
     
+    var beaconRegions: [CLBeaconRegion] = []
+    var newBeaconFound = false
+    
     override init() {
         locationManager = CLLocationManager()
         authorizationStatus = locationManager.authorizationStatus
@@ -20,7 +23,11 @@ class CoreLocationViewModel: NSObject, ObservableObject, CLLocationManagerDelega
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 10.0
+        
+        DispatchQueue.main.async {
+            self.locationManager.startMonitoringSignificantLocationChanges()
+        }
     }
     
     func requestPermission() {
@@ -39,7 +46,16 @@ class CoreLocationViewModel: NSObject, ObservableObject, CLLocationManagerDelega
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("location updated")
+        
+        DispatchQueue.main.async {
+            self.locateBeacon()
+        }
+    }
+    
     func locateBeacon() {
+        print("Locating beacon...")
         let beaconID = "com.example.myBeaconRegion"
         let region = CLBeaconRegion(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!, identifier: beaconID)
         
@@ -56,11 +72,18 @@ class CoreLocationViewModel: NSObject, ObservableObject, CLLocationManagerDelega
             // Start ranging only if the devices supports this service.
             if CLLocationManager.isRangingAvailable() {
                 manager.startRangingBeacons(in: region as! CLBeaconRegion)
-
+                
                 // Store the beacon so that ranging can be stopped on demand.
-//                beaconsToRange.append(region as! CLBeaconRegion)
                 print("Beacon found")
 //                getBeacon(uuid: beaconRegion.uuid)
+                
+                if beaconRegions.contains(beaconRegion) {
+                    newBeaconFound = false
+                }
+                else {
+                    beaconRegions.append(beaconRegion)
+                    newBeaconFound = true
+                }
             }
             else {
                 print("nein!")
