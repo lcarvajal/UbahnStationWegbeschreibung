@@ -23,17 +23,19 @@ struct ContentView: View {
         default:
             VStack {
                 Button {
-                    locationViewModel.locateBeacon()
-                    if locationViewModel.newBeaconFound {
-                        print("New one found")
-                        print(locationViewModel.beaconRegions.count)
-                        showingSheet.toggle()
-                    }
-                    else {
-                        print("No new beacon found")
-                    }
+//                    locationViewModel.locateBeacon()
+//                    if locationViewModel.newBeaconFound {
+//                        print("New one found")
+//                        print(locationViewModel.beaconRegions.count)
+//                        showingSheet.toggle()
+//                    }
+//                    else {
+//                        print("No new beacon found")
+//                    }
+                    print(locationViewModel.beaconRegions.count)
+                    showingSheet.toggle()
                 } label: {
-                    Image("Map")
+                    Image("Map To Messe Prater")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .edgesIgnoringSafeArea(.top)
@@ -84,7 +86,7 @@ struct BeaconView: View {
             .background(.white)
             .foregroundColor(.black)
             .onAppear {
-                beaconViewModel.getBeacon(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!)
+                beaconViewModel.getBeacon(uuid: UUID(uuidString: "EA33B1EC-4A91-4577-9983-0978DDD237BA")!)
             }
     }
 }

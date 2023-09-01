@@ -57,7 +57,9 @@ class CoreLocationViewModel: NSObject, ObservableObject, CLLocationManagerDelega
     func locateBeacon() {
         print("Locating beacon...")
         let beaconID = "com.example.myBeaconRegion"
-        let region = CLBeaconRegion(uuid: UUID(uuidString: "F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690")!, identifier: beaconID)
+        // Step 1 -> F9DF84FC-1145-4D0B-9AC7-F2FAD5EFF690
+        // Step 2 -> EA33B1EC-4A91-4577-9983-0978DDD237BA
+        let region = CLBeaconRegion(uuid: UUID(uuidString: "EA33B1EC-4A91-4577-9983-0978DDD237BA")!, identifier: beaconID)
         
         if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
             locationManager.startMonitoring(for: region)
